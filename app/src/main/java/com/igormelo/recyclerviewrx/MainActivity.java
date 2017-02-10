@@ -22,6 +22,7 @@ RecyclerView recyclerListView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerListView=(RecyclerView) findViewById(R.id.recylerview_list);
+        recyclerListView.setHasFixedSize(true);
         recyclerListView.setLayoutManager(new LinearLayoutManager(this));
         myAdapter = new MyAdapter(this);
         recyclerListView.setAdapter(myAdapter);
@@ -43,6 +44,7 @@ RecyclerView recyclerListView;
             @Override
             public void onCompleted() {
                 Toast.makeText(MainActivity.this, "Completed", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -53,7 +55,6 @@ RecyclerView recyclerListView;
             @Override
             public void onNext(List<String> strings) {
                 myAdapter.setData(strings);
-
             }
         });
     }
